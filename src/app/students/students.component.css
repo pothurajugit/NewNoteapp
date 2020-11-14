@@ -1,0 +1,21 @@
+.imgbg{
+    background: url(../../assets/loginbg.jpg) no-repeat;
+    background-size: cover;
+    height: 87vh;
+}
+.cardstyle{
+    position: relative;
+    top: 20%;
+}
+label{
+    font-size: 14px;
+    font-weight: 500;
+}
+.cardstyle1{
+    background-color: #f1f1f1;
+}
+span{
+    float: right;
+    font-size: 11px;
+}
+

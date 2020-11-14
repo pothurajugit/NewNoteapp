@@ -1,0 +1,33 @@
+<app-studentheader></app-studentheader>
+<div class="container-fluid imgbg">
+  <div class="row">
+    <marquee class="pt-3"><h6>Welcome to dashboard {{name}} you can submit notes here</h6></marquee>
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+          <div class="cardstyle">
+              <div class="card p-4 cardstyle1">
+                  <form class="py-3" [formGroup]="notesForm" (ngSubmit)="submitnotes($event)" (input)="formchanges($event)">
+                    <div class="form-group">
+                      <label>Select your class</label>
+                      <select class="form-control form-control-sm" formControlName="class">
+                        <option value="">Select Your Class</option>
+                        <option [value]="class" selected="selected">{{class}} Class</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="comment">Submit your notes :</label>
+                      <textarea class="form-control" rows="5" id="comment" placeholder="Maximum 200 words allowed" style="resize: none;" [maxlength]="count" formControlName="notesdata" [(ngModel)]="content" name="coontent"></textarea>
+                      <span>{{remaining}} words remaining</span>
+                    </div>
+                        <button class="btn btn-sm btn-danger rounded-0" [disabled]="!notesForm.valid" (click)="sendNotes()">Submit</button>               
+                  </form>
+              </div>
+          </div>
+      </div>
+      <div class="col-sm-4"></div>
+  </div>
+</div>
+
+<div>
+  <router-outlet></router-outlet>
+</div>

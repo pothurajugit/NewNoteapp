@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-info" style="max-width: 100vw;">
+    <a class="navbar-brand"><img src="../../../assets/notes.jpg" alt="notes" class="img-thumbnail" width="100px"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link font-weight-bold text-white" style="cursor: pointer;" routerLink="/studentdashboard">Add Notes</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link font-weight-bold " style="cursor: pointer;" (click)="lgout()"><img src="../../../assets/logout.png" width="30px" class="img-rounded" alt=""></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <h4 class="text-center text-danger pt-3" *ngIf="loading">Data Loading.....!</h4>
+  <h4 class="text-center text-danger pt-3" *ngIf="notesData.length == 0 && !loading">No data found.....!</h4>
+  <div class="container-fluid">
+    <table class="table taable-sm tableStyle" *ngIf="notesData.length > 0">
+      <thead>
+        <tr class="text-center">
+          <th>S.no</th>
+          <th>Notes Content</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let notes of notesData; let i = index">
+          <td>{{i+1}}</td>
+          <td style="width: 64vw;" *ngIf="notes.notescontent.length > 150; else normal">{{notes.notescontent | slice:0:150}}...</td>
+          <ng-template #normal>
+            <td style="width: 64vw;">{{notes.notescontent}}</td>
+          </ng-template>
+          
+          <td>{{notes.time | date}}  {{notes.time | date:'h:mm a'}}</td>
+          <td><button class="btn btn-danger btn-sm rounded-0" (click)="editNotes(notes._id,notes.notescontent)">Edit</button></td>
+          <td><button class="btn btn-danger btn-sm rounded-0" (click)="deleteNotes(notes._id)">Delete</button></td>
+        </tr>
+        <tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="updatemodel" *ngIf="showModel">
+    <div class="card cstyle p-3">
+      <form>
+        <div class="form-group">
+          <div>
+            <label for="notesdata">Update your notes :</label>
+            <label style="float: right; cursor: pointer; color: red;" (click)="closeModel()">Close</label>
+          </div>
+          <textarea class="form-control" rows="5" id="notesdata"  style="resize: none;" [(ngModel)]="contentnotes" name="cotent"></textarea>
+        </div>
+        <button class="btn btn-danger btn-sm rounded-0" (click)="updateNotes()">Update</button>
+      </form>
+    </div>
+  </div>

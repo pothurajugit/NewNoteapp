@@ -1,0 +1,24 @@
+.updatemodel{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 50;
+    background: rgba(0,0,0,0.75);
+}
+.cstyle{
+    position: fixed;
+    top: 30vh;
+    left: 34vw;
+    width: 30vw;
+}
+label{
+    font-size: 14px;
+    font-weight: 500;
+}
+.tableStyle{
+    font-size: 13px; 
+    max-height: 100vh;
+
+}

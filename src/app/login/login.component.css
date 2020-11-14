@@ -1,0 +1,32 @@
+.imgbg{
+    background: url(../../assets/loginbg.jpg) no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+.cardstyle{
+    position: relative;
+    top: 40%;
+}
+label{
+    font-size: 14px;
+    font-weight: 400;
+}
+.register{
+    color: green;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.register:focus{
+    border: none;
+}
+.cardstyle1{
+    background-color: #f1f1f1;
+}
+a{
+    text-decoration: none;
+}
+.validate{
+    color: red;
+    font-size: 12px;
+}
