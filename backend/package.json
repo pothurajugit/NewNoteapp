@@ -2,7 +2,7 @@
   "name": "noteapp",
   "version": "0.0.0",
   "scripts": {
-    "start" : "backend/app.js"
+    "start" : "node backend/app.js"
   },
   "private": true,
   "dependencies": {
